@@ -1,1 +1,54 @@
 /*  your css code here. If applicable */
+body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 800px;
+        }
+
+        .cube {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            transform: rotateX(-30deg) rotateY(-45deg);
+        }
+
+        .face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .front  { transform: translateZ(100px); }
+        .back   { transform: rotateY(180deg) translateZ(100px); }
+        .left   { transform: rotateY(-90deg) translateZ(100px); }
+        .right  { transform: rotateY(90deg) translateZ(100px); }
+        .top    { transform: rotateX(90deg) translateZ(100px); }
+        .bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+        .face::after {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            top: 33.3%;
+            left: 0;
+            right: 0;
+        }
+
+        .face::before {
+            content: '';
+            display: block;
+            height: 1px;
+            background-color: black;
+            position: absolute;
+            top: 66.6%;
+            left: 0;
+            right: 0;
+        }
